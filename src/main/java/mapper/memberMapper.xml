@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberSQL">
+	<resultMap type="member.bean.MemberDTO" id="memberResult">
+		<result column="NAME" property="name"/>
+		<result column="ID" property="id"/>
+		<result column="PWD" property="pwd"/>
+	</resultMap>
+	
+	<select id="isExistId" parameterType="String" resultType="memberDTO">
+		select * from member where id = #{id}
+	</select>
+	
+	<insert id="write" parameterType="memberDTO">
+		insert into member values(#{name},#{id},#{pwd},#{gender},#{email1},#{email2},#{tel1},#{tel2},#{tel3},#{zipcode},#{addr1},#{addr2},sysdate)
+	</insert>
+	
+	<select id="login" parameterType="memberDTO" resultType="memberDTO">
+		select * from member where id = #{id} and pwd = #{pwd}
+	</select>
+	
+	<select id="getMember" parameterType="String" resultType="memberDTO">
+		select * from member where id = #{id}
+	</select>
+	
+	<update id="update" parameterType="memberDTO">
+        update member set name = #{name}, pwd = #{pwd}, 
+                    email1 = #{email1}, email2 = #{email2},
+                    tel1 = #{tel1}, tel2 = #{tel2}, tel3 = #{tel3},
+                    zipcode = #{zipcode}, addr1 = #{addr1}, addr2 = #{addr2},
+                    logtime = sysdate
+                    where id = #{id}
+     </update>	
+</mapper>

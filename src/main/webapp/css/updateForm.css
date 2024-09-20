@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+body {
+	margin: 0 auto;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 97vh;
+}
+#wrap {
+	height: center;
+	border: 2px solid #03CF5D;
+	border-radius: 15px;
+	padding: 5em;
+}
+h1 {
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: -0.5em;
+}
+span {	
+	display: flex;
+	font-size: 15px;
+	color: black;
+	text-align: center;
+	justify-content: center;
+	margin-bottom: 1em;
+	margin-top: 1.4em;
+}
+table {
+	border-collapse: collapse;
+}
+th, td {
+	padding: 5px;
+	color: black;
+	font-size: 14px;
+}
+div {
+	color: red;
+	font-size: 8pt;
+	font-weight: bold;
+}
+#name, #id, #pwd, #repwd, #addr1, #addr2 {
+	width: 508px;
+}
+#zipcode {
+	width: 150px;
+}
+#tel1, #tel2, #tel3 {
+	width: 65px;
+	text-align: center;
+}
+input[type="email"] {
+	width: 150px;
+}
+input[type="button"] {
+	margin-top: 1.3em;
+	margin-bottom: 1.3em;
+}
+
+input[type="button"], input[type="reset"] {
+	border-style: none;
+	border-radius: 5px;
+	width: 200px;
+	padding: 0.4em 0.2em;
+	background-color: #03CF5D;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: bold;
+	transition: background 0.14s ease-in-out;
+}
+
+input[type="button"]:hover, input[type="reset"]:hover {
+	cursor: pointer;
+	color: #F1F1F2;
+	background-color: #2CB24A;
+}
+button {
+	width: 80px;
+	height: 20px;
+	border-style: none;
+	border-radius: 2px;
+	background-color: #03CF5D;
+	color: #ffffff;
+	font-size: 10px;
+	font-weight: bold;
+	transition: background 0.14s ease-in-out;
+	padding: 3px 5px;
+}
+button:hover {
+	cursor: pointer;
+	color: #F1F1F2;
+	background-color: #2CB24A;
+}
+#zipcode, #addr1, #addr2 {
+	margin: 3px auto;
+}
