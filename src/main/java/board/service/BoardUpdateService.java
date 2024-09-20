@@ -1,13 +1,11 @@
 package board.service;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.control.CommandProcess;
 
+import board.bean.BoardDTO;
 import board.dao.BoardDAO;
 
 public class BoardUpdateService implements CommandProcess {
@@ -17,15 +15,22 @@ public class BoardUpdateService implements CommandProcess {
 		String subject = request.getParameter("subject");
 		String content = request.getParameter("content");
 		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("seq", Integer.valueOf(seq));
-		map.put("subject", subject);
-		map.put("content", content);
+		BoardDTO boardDTO = new BoardDTO();
+		boardDTO.setSeq(seq);
+        boardDTO.setSubject(subject);
+        boardDTO.setContent(content);
 		
+        System.out.println("Subject: " + subject);
+        System.out.println("Content: " + content);
+        System.out.println("Seq: " + seq);
+
+        
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		
-		boardDAO.boardUpdate(map);
+		int result = boardDAO.boardUpdate(boardDTO);
 		
-		return "none";
+		request.setAttribute("result", result);
+		
+		return "/board/boardUpdate.jsp";
 	}
 }

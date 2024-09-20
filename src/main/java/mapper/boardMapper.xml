@@ -28,7 +28,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE FROM BOARD WHERE SEQ = #{seq}		
 	</delete>
 	
-	<update id="boardUpdate" parameterType="Integer">
+	<update id="boardUpdate" parameterType="boardDTO">
 		UPDATE BOARD SET SUBJECT = #{subject}, CONTENT = #{content} WHERE SEQ = #{seq}
+	</update>
+	
+	<update id="boardHit" parameterType="Integer">
+		UPDATE BOARD SET HIT = HIT + 1 WHERE SEQ = #{seq}
 	</update>
 </mapper>

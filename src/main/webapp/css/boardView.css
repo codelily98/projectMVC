@@ -141,10 +141,10 @@ input[type="text"] {
 	border: 1px solid #03CF5D;
 	border-radius: 5px;
 	color: black;
-	font-size: 15px;
+	font-size: 16px;
 	resize: none;
 	vertical-align: center;
-	width: 300px;
+	width: 313px;
 }
 
 textarea {
@@ -155,10 +155,10 @@ textarea {
 	border: 1px solid #03CF5D;
 	border-radius: 10px;
 	color: black;
-	font-size: 15px;
+	font-size: 16px;
 	resize: none;
 	vertical-align: center;
-	width: 580px;
+	width: 583px;
 	height: 15em;
 }
 

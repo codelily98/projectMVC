@@ -1,8 +1,6 @@
 package board.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,9 +13,10 @@ import board.dao.BoardDAO;
 public class BoardViewService implements CommandProcess {
 	@Override
 	public String requestpro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+		String pg = request.getParameter("pg");
 		
 		if(request.getParameter("seq") == null) {
-			return "./boardList.do?pg=1";
+			return "./boardList.do?pg=" + pg;
 		} else {
 			int seq = Integer.parseInt(request.getParameter("seq"));
 			
@@ -25,9 +24,8 @@ public class BoardViewService implements CommandProcess {
 			
 			List<BoardDTO> list = boardDAO.boardView(seq);
 			
-			System.out.println("나는 Service View list : " + list);
-			
 			request.setAttribute("list", list);
+			request.setAttribute("pg", pg);
 			
 			return "/board/boardView.jsp";
 		}

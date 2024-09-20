@@ -1,5 +1,5 @@
 //아이디 중복체크
-$('#id').blur(function(){
+$(document).on('blur', "#id", function(){
 	id = $('#id').val();
 	$('#idDiv').html('');
 	if(!id){
@@ -13,11 +13,10 @@ $('#id').blur(function(){
 			dataType: 'text',
 			success:function(data){
 				if(data.trim() == 'exist'){
-					$('#idDiv').html('<font color = red>사용 불가능</font>');
-				}
-				else{
-					$('#idDiv').html('<font color = blue>사용 가능</font>');
-					$('#check').val($('#id').val());
+				    $('#idDiv').html('<font color=red>이미 존재하는 ID입니다.</font>');
+				} else {
+				    $('#idDiv').html('<font color=blue>사용 가능한 ID입니다.</font>');
+				    $('#check').val($('#id').val());
 				}
 			},
 			error:function(e){

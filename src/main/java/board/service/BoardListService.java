@@ -33,6 +33,7 @@ public class BoardListService implements CommandProcess {
 
         // JSP로 데이터 전달
         request.setAttribute("list", list);
+        request.setAttribute("currentPage", pg); // 현재 페이지를 JSP에 전달
         request.setAttribute("pagingHTML", boardPaging.getPagingHTML().toString()); // String으로 변환하여 전달
 
         return "/board/boardList.jsp";

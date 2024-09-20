@@ -39,11 +39,11 @@
 						<th width="100">조회수</th>
 					</tr>
 					
-					<c:if test="${list != null}">
+					<c:if test="${not empty list}">
 						<c:forEach var="boardDTO" items="${list}">
 							<tr>
 								<td align="center"><span id="seq">${boardDTO.seq}</span></td>
-								<td align="center"><a class="subjectA" href="./boardView.do?seq=${boardDTO.seq}">${boardDTO.subject}</a></td>
+								<td align="center"><a class="subjectA" href="#">${boardDTO.subject}</a></td>
 								<td align="center">${boardDTO.id}</td>
 								<td align="center">
 									<fmt:parseDate value="${boardDTO.logtime}" var="parsedDate" pattern="yyyy-MM-dd HH:mm:ss" />
@@ -53,6 +53,11 @@
 							</tr>
 						</c:forEach>
 					</c:if>
+					<c:if test="${empty list}">
+			            <tr>
+			                <td colspan="5" align="center">등록된 글이 없습니다.</td>
+			            </tr>
+			        </c:if>
 				</table>
 			</div>
 			<div id="appendA" style="text-align: center; margin-top: 15px;">
@@ -63,14 +68,10 @@
 		</div>
 	</div>
 	<div id = footer>
-		
+		<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
 	</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script type="text/javascript">
-function boardPaging(pg){
-	location.href = "boardList.do?pg=" + pg;
-}
-</script>	
+<script type="text/javascript" src="../js/boardList.js"></script>	
 </body>
 </html>

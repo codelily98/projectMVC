@@ -3,13 +3,13 @@ $(function(){
 		$('#subjectDiv').empty();
 		$('#contentDiv').empty();
 		
-		if($('#subject').val() == '')
+		if($('#subject').val() == '') {
 			$('#subjectDiv').html('제목 입력');
-		
-		else if($('#content').val() == '')
+		}		
+		else if($('#content').val() == '') {
 			$('#contentDiv').html('내용 입력');
-		
-		else
+		}
+		else {
 			$.ajax({
 				type: 'post',
 				url: './boardWrite.do',
@@ -24,7 +24,8 @@ $(function(){
 				error: function(e){
 					console.log(e);
 				}
-			});
+			});	
+		}	
 	});
 });
 

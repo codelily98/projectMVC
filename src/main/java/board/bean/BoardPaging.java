@@ -15,6 +15,12 @@ public class BoardPaging {
 	public void makePagingHTML() {
 		pagingHTML = new StringBuffer();
 		
+		// 글이 하나도 없을 경우 처리
+	    if (totalA == 0) {
+	        pagingHTML.append("<span id='noContent'>1</span>");
+	        return;
+	    }
+		
 		int totalP = (totalA + pageSize-1) / pageSize;
 		
 		int startPage = (currentPage-1) / pageBlock * pageBlock + 1;

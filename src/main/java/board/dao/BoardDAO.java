@@ -86,10 +86,23 @@ public class BoardDAO {
 		return result;
 	}
 
-	public void boardUpdate(Map<String, Object> map) {
+	public int boardUpdate(BoardDTO boardDTO) {
 		SqlSession sqlSession = sessionFactory.openSession();
-		sqlSession.update("boardSQL.boardUpdate", map);
+		int result = sqlSession.update("boardSQL.boardUpdate", boardDTO);
 		sqlSession.commit();
-		sqlSession.close();		
+		sqlSession.close();
+		
+		return result;
+	}
+
+	public int boardHit(int seq) {
+		int result = 0;
+		
+		SqlSession sqlSession = sessionFactory.openSession();
+		result = sqlSession.update("boardSQL.boardHit", seq);
+		sqlSession.commit();
+		sqlSession.close();
+		
+		return result;
 	}
 }
