@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.control.CommandProcess;
 
+import board.bean.BoardDTO;
 import board.dao.BoardDAO;
 
 public class BoardDeleteService implements CommandProcess {

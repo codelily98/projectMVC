@@ -13,10 +13,15 @@ public class BoardListService implements CommandProcess {
     public String requestpro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
         int pg = Integer.parseInt(request.getParameter("pg"));
 
-        // 1페이지당 5개씩
-        int endNum = pg * 5;
-        int startNum = endNum - 4;
-
+        /* 1페이지당 5개씩
+		int endNum = pg * 5;
+		int startNum = endNum - 4;
+		*/
+        
+        // MySQL 1페이지당 5개씩
+ 		int endNum = 5;
+ 		int startNum = (pg * endNum) - 5;
+        
         // DB
         BoardDAO boardDAO = BoardDAO.getInstance();
         List<BoardDTO> list = boardDAO.boardList(startNum, endNum);
@@ -34,6 +39,7 @@ public class BoardListService implements CommandProcess {
         // JSP로 데이터 전달
         request.setAttribute("list", list);
         request.setAttribute("currentPage", pg); // 현재 페이지를 JSP에 전달
+        request.setAttribute("startNum", startNum); // 페이지의 게시물 번호
         request.setAttribute("pagingHTML", boardPaging.getPagingHTML().toString()); // String으로 변환하여 전달
 
         return "/board/boardList.jsp";

@@ -8,6 +8,7 @@
 	<typeAliases>
 		<typeAlias type="member.bean.MemberDTO" alias="memberDTO"/>
 		<typeAlias type="board.bean.BoardDTO" alias="boardDTO"/>
+		<typeAlias type="imageboard.bean.ImageBoardDTO" alias="imageboardDTO"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -25,5 +26,6 @@
 	<mappers>
 		<mapper resource="mapper/memberMapper.xml"/>
 		<mapper resource="mapper/boardMapper.xml"/>
+		<mapper resource="mapper/imageboardMapper.xml"/>
 	</mappers>
 </configuration>

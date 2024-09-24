@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="imageboardSQL">
+	<insert id="imageboardWrite" parameterType="imageboardDTO">
+	    INSERT INTO IMAGEBOARD (imageid, imagename, imageprice, imageqty, imagecontent, image1, logtime) 
+		    VALUES (#{imageid}, 
+		            #{imagename}, 
+		            #{imageprice}, 
+		            #{imageqty}, 
+		            #{imagecontent}, 
+		            #{image1}, 
+		            NOW()
+		           )
+	</insert>
+	<select id="imageboardList" parameterType="Map" resultType="imageboardDTO">
+	  <!-- <![CDATA[
+		SELECT * FROM (
+		SELECT ROWNUM rn, tt.* FROM (
+		SELECT * FROM IMAGEBOARD ORDER BY SEQ DESC
+		) tt
+		) WHERE rn >= #{startNum} AND rn <= #{endNum}
+	  ]]> -->
+	  <!-- MySQL -->
+		SELECT * FROM IMAGEBOARD ORDER BY SEQ DESC LIMIT #{startNum}, #{endNum}
+	</select>
+	<select id="getTotalA" resultType="Integer">
+		SELECT COUNT(*) FROM IMAGEBOARD
+	</select>
+	
+	<delete id="imageboardDelete" parameterType="Map">
+		DELETE FROM IMAGEBOARD WHERE SEQ = #{seq}
+	</delete>
+</mapper>

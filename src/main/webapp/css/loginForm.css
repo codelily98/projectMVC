@@ -54,15 +54,21 @@ input[type="text"], input[type="password"] {
 	padding: 0.4em;
 	width: 250px;
 }
+
 input[type="button"], input[type="reset"] {
-	color: #ffffff;
-	background: gray;
-	border-radius: 10px;
-	padding: 5px 30px;
 	border-style: none;
-	border: 2px solid black;
-}
-input[type="button"]:hover, input[type="reset"]:hover {
-	background: black;
+	border-radius: 5px;
+	width: 200px;
+	padding: 0.4em 0.2em;
+	background-color: #03CF5D;
+	color: #ffffff;
+	font-size: 16px;
 	font-weight: bold;
+	transition: background 0.14s ease-in-out;
+}
+
+input[type="button"]:hover, input[type="reset"]:hover {
+	cursor: pointer;
+	color: #F1F1F2;
+	background-color: #2CB24A;
 }

@@ -35,10 +35,11 @@ public class BoardDAO {
 	}
 	
 	public void boardWrite(Map<String, String> map) {
-		SqlSession sqlSession = sessionFactory.openSession();
-		sqlSession.insert("boardSQL.boardWrite", map);
-		sqlSession.commit();
-		sqlSession.close();
+	    SqlSession sqlSession = sessionFactory.openSession();
+	    sqlSession.insert("boardSQL.boardWrite", map);
+	    sqlSession.update("boardSQL.updateRef");
+	    sqlSession.commit();
+	    sqlSession.close();
 	}
 	
 	public List<BoardDTO> boardList(int startNum, int endNum) {

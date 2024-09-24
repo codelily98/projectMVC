@@ -38,7 +38,11 @@
 <c:set var="context" value="${pageContext.request.contextPath}"></c:set>
 <ul class = mainnav>
 	<c:if test="${sessionScope.memId != null }">
-	<li><a href="${context}/board/boardWriteForm.do">글쓰기</a></li>
+		<li><a href="${context}/board/boardWriteForm.do">글쓰기</a></li>
 	</c:if>
 	<li><a href="${context}/board/boardList.do?pg=1">목록</a></li>
+	<c:if test="${sessionScope.memId =='1'}">
+		<li><a href="${context}/imageboard/imageboardWriteForm.do">이미지 등록</a></li>
+	</c:if>
+	<li><a href="${context}/imageboard/imageboardList.do?pg=1">이미지 목록</a></li>
 </ul>

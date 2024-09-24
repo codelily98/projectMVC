@@ -38,7 +38,7 @@
 				        </td>
 			    	</tr>
 			    	<tr>
-			        	<th class="content2" width="16.6%">글번호</th>
+			        	<th class="content2" width="16.6%">작성번호</th>
 				        <td class="content2">${list[0].seq}</td>
 				        <th class="content2" width="16.6%">작성자</th>
 				        <td class="content2">${list[0].id}</td>
@@ -50,9 +50,16 @@
 				        <td colspan="5" class="content3" id="contentStyle">${list[0].content}</td>
 				    </tr>
 				    <tr>
+				    	<th></th>
+				    	<td colspan="5">
+				    		<div class="check"></div>
+				    	</td>
+				    </tr>
+				    <tr>
 				    	<c:if test="${list[0].id != memId}">
 				        <td colspan="6" align="center">
 				            <input type="button" value="목록" id="listBtn">
+				            <input type="hidden" id="pg" name="pg" value="${pg}">
 				        </td>
 				        </c:if>
 				        <c:if test="${list[0].id == memId}">
@@ -75,7 +82,7 @@
 		</div>
 	</div>
 	<div id = footer>
-		
+		<input type="hidden" value="${memPwd}" id="pwd" name="pwd">
 	</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

@@ -42,9 +42,10 @@
 					<c:if test="${not empty list}">
 						<c:forEach var="boardDTO" items="${list}">
 							<tr>
-								<td align="center"><span id="seq">${boardDTO.seq}</span></td>
+								<c:set var="startNum" value="${startNum + 1}" />
+								<td align="center"><input id="seq" name="seq" type="hidden" value="${boardDTO.seq}"><span>${startNum}</span></td>
 								<td align="center"><a class="subjectA" href="#">${boardDTO.subject}</a></td>
-								<td align="center">${boardDTO.id}</td>
+								<td align="center"><input type="hidden" id="Bid" name="Bid" value="${boardDTO.id}">${boardDTO.id}</td>
 								<td align="center">
 									<fmt:parseDate value="${boardDTO.logtime}" var="parsedDate" pattern="yyyy-MM-dd HH:mm:ss" />
     								<fmt:formatDate value="${parsedDate}" pattern="yy.MM.dd HH:mm:ss" />
@@ -69,6 +70,7 @@
 	</div>
 	<div id = footer>
 		<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
+		<input type="hidden" id="Sid" name="Sid" value="${memId}">
 	</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

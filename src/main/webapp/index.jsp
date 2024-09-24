@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +27,7 @@
 		</div>
 		<div id="section">
 			<div id="content">
-				<h3>
+				<h3><br/>
 					저희 홈페이지를 방문해주셔서 감사합니다.
 					Have a nice Day!
 				</h3><br/>

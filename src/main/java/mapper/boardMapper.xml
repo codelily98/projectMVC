@@ -4,17 +4,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="boardSQL">
 	<insert id="boardWrite" parameterType="Map">
-		INSERT INTO board (SEQ, ID, NAME, EMAIL, SUBJECT, CONTENT, REF) 
-		VALUES (seq_board.NEXTVAL, #{id}, #{name}, #{email}, #{subject}, #{content}, seq_board.CURRVAL)
+	    INSERT INTO board (ID, NAME, EMAIL, SUBJECT, CONTENT) 
+	    VALUES (#{id}, #{name}, #{email}, #{subject}, #{content})
 	</insert>
+	
+	<update id="updateRef" parameterType="Integer">
+    	UPDATE BOARD SET REF = LAST_INSERT_ID() WHERE SEQ = LAST_INSERT_ID()
+	</update>
+	
 	<select id="boardList" parameterType="Map" resultType="boardDTO">
-	  <![CDATA[
+		<!-- <![CDATA[
 		SELECT * FROM (
 		SELECT ROWNUM rn, tt.* FROM (
 		SELECT * FROM board ORDER BY ref DESC, step ASC
 		) tt
 		) WHERE rn >= #{startNum} AND rn <= #{endNum}
-	  ]]>
+		]]> -->
+	  
+		<!-- MySQL -->
+		SELECT * FROM BOARD ORDER BY REF DESC, STEP ASC LIMIT #{startNum}, #{endNum}
 	</select>
 	<select id="getTotalA" resultType="Integer">
 		SELECT COUNT(*) FROM BOARD

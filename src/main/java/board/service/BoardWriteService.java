@@ -14,7 +14,7 @@ import board.dao.BoardDAO;
 public class BoardWriteService implements CommandProcess {
 	@Override
 	public String requestpro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		//데이터
+		// 데이터
 		request.setCharacterEncoding("UTF-8");
 		
 		String subject = request.getParameter("subject");
@@ -33,10 +33,10 @@ public class BoardWriteService implements CommandProcess {
 		map.put("subject", subject);
 		map.put("content", content);
 		
-		//DB
-		BoardDAO boardDAO = BoardDAO.getInstance();
-		boardDAO.boardWrite(map);
-		
-		return "none";
+		// DB
+        BoardDAO boardDAO = BoardDAO.getInstance();
+        boardDAO.boardWrite(map); // SEQ 값을 가져옴
+        
+        return "none";
 	}
 }
